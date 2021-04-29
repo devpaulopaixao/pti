@@ -16,6 +16,8 @@ Route::get('/', function () {
     return redirect('login');
 });
 
+Route::get('/painel/{hash}', 'PtiController@painel')->name('pti.panel');
+Route::post('/painel/show', 'PtiController@show')->name('pti.panel.show');
 
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/home', 'HomeController@index')->name('home');
